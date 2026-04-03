@@ -23,6 +23,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aryanrawat.vercel.app'),
   title: 'Aryan Rawat — Data Scientist',
   description:
     'Personal portfolio of Aryan Rawat, Data Scientist at Bristol Myers Squibb. Specializing in machine learning, generative AI, and clinical data analytics.',
@@ -36,10 +37,14 @@ export const metadata: Metadata = {
     'Portfolio',
     'Hyderabad',
   ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Aryan Rawat — Data Scientist',
     description: 'Data Scientist at Bristol Myers Squibb. ML · GenAI · Clinical Analytics.',
     type: 'website',
+    url: '/',
   },
   other: {
     'theme-color': '#050510',
@@ -61,8 +66,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Person',
               name: 'Aryan Rawat',
               jobTitle: 'Data Scientist',
+              url: 'https://aryanrawat.vercel.app',
               worksFor: { '@type': 'Organization', name: 'Bristol Myers Squibb' },
               email: 'aryanrawat2001@gmail.com',
+              sameAs: [
+                'https://github.com/AryanRawat2001/',
+                'https://www.linkedin.com/in/aryan-rawat-58551618b/',
+              ],
+              knowsAbout: ['Machine Learning', 'Data Science', 'Python', 'Generative AI', 'Clinical Analytics'],
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Hyderabad',

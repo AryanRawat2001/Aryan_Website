@@ -245,7 +245,7 @@ export default function DataVisualization() {
   return (
     <section
       ref={containerRef}
-      className="relative py-16 bg-navy overflow-hidden"
+      className="relative py-28 bg-navy overflow-hidden"
       aria-hidden="true"
     >
       {/* Top & bottom gradient fades */}

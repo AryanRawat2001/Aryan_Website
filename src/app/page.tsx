@@ -26,9 +26,9 @@ export default function Home() {
       <DataVisualization />
       <SectionDivider variant="wave" />
       <Experience />
-      <SectionDivider variant="gradient" />
-      <Projects />
       <SectionDivider variant="dots" />
+      <Projects />
+      <SectionDivider variant="gradient" />
       <Credentials />
       <SectionDivider variant="wave" />
       <Interests />
