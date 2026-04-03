@@ -26,6 +26,7 @@ const PROJECTS: Project[] = [
     icon: TrendingUp,
     gradient: 'from-blue-600/20 to-cyan-600/20',
     tags: ['Python', 'scikit-learn', 'SQL', 'GCP', 'Feature Engineering', 'Tableau'],
+    github: 'https://github.com/AryanRawat2001/',
     featured: true,
   },
   {
@@ -36,6 +37,7 @@ const PROJECTS: Project[] = [
     icon: MessageSquareText,
     gradient: 'from-violet-600/20 to-purple-600/20',
     tags: ['Python', 'TensorFlow', 'Hugging Face', 'NLP', 'Pandas', 'NumPy'],
+    github: 'https://github.com/AryanRawat2001/',
     featured: true,
   },
   {
@@ -46,6 +48,7 @@ const PROJECTS: Project[] = [
     icon: Bot,
     gradient: 'from-cyan-600/20 to-teal-600/20',
     tags: ['Mistral LLM', 'Python', 'GCP', 'GenAI', 'FastAPI'],
+    github: 'https://github.com/AryanRawat2001/',
   },
   {
     title: 'Demand Forecasting & Planning',
@@ -55,6 +58,7 @@ const PROJECTS: Project[] = [
     icon: BrainCircuit,
     gradient: 'from-emerald-600/20 to-cyan-600/20',
     tags: ['AERA', 'Decision Intelligence', 'SAP', 'Redshift', 'SQL', 'Data Pipelines'],
+    github: 'https://github.com/AryanRawat2001/',
     featured: true,
   },
 ];

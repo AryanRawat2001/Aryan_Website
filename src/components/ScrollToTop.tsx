@@ -12,7 +12,8 @@ export default function ScrollToTop() {
   const dashOffset = useTransform(scrollYProgress, [0, 1], [CIRCUMFERENCE, 0]);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    setVisible(v > 0.15);
+    const shouldShow = v > 0.15;
+    setVisible((prev) => (prev !== shouldShow ? shouldShow : prev));
   });
 
   return (

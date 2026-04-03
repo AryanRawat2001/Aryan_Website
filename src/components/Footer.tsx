@@ -1,6 +1,7 @@
 'use client';
 
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { scrollToSection } from '@/lib/scroll';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -20,14 +21,6 @@ const NAV = [
 ];
 
 export default function Footer() {
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    if (!el) return;
-    const offset = 80;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
-
   return (
     <footer className="relative border-t border-border bg-navy">
       {/* Top glow line */}
@@ -51,7 +44,7 @@ export default function Footer() {
             {NAV.map((link) => (
               <button
                 key={link.href}
-                onClick={() => scrollTo(link.href)}
+                onClick={() => scrollToSection(link.href)}
                 className="px-3 py-1.5 text-sm text-slate-500 hover:text-slate-200 rounded-lg hover:bg-surface transition-all duration-200 cursor-pointer font-body focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
               >
                 {link.label}

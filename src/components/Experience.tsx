@@ -15,6 +15,7 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
     const duration = 2000;
     const startTime = performance.now();
 
+    let frameId = 0;
     const animate = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -22,10 +23,11 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
       const eased = 1 - Math.pow(1 - progress, 3);
       start = eased * target;
       setCount(Math.min(Math.round(start), target));
-      if (progress < 1) requestAnimationFrame(animate);
+      if (progress < 1) frameId = requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
   }, [isInView, target]);
 
   return (

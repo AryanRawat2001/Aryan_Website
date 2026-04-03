@@ -40,7 +40,7 @@ export default function DataVisualization() {
     ).matches;
     if (prefersReducedMotion) return;
 
-    let animationId: number;
+    let animationId = 0;
     let time = 0;
 
     const resize = () => {

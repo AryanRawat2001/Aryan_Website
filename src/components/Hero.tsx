@@ -10,6 +10,7 @@ import {
 } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import ParticleNetwork from './ParticleNetwork';
+import { scrollToSection } from '@/lib/scroll';
 
 // ---- Text Scramble Hook ----
 const SCRAMBLE_CHARS = '!@#$%^&*()_+{}|:<>?~';
@@ -196,14 +197,6 @@ export default function Hero() {
     window.addEventListener('mousemove', handleMouse);
     return () => window.removeEventListener('mousemove', handleMouse);
   }, [rawMouseX, rawMouseY]);
-
-  const scrollToSection = (id: string) => {
-    const el = document.querySelector(id);
-    if (!el) return;
-    const offset = 80;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">

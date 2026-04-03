@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { scrollToSection } from '@/lib/scroll';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -57,14 +58,7 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const el = document.querySelector(href);
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: 'smooth' });
+    scrollToSection(href);
   };
 
   return (
@@ -98,6 +92,7 @@ export default function Navbar() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
+          aria-label="Scroll to top"
           className="flex items-center gap-2.5 cursor-pointer"
         >
           <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-8 h-8 rounded-lg object-cover object-top glow-blue" />
