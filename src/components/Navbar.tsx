@@ -72,7 +72,7 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 2 }}
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl"
     >
       <nav
@@ -82,7 +82,7 @@ export default function Navbar() {
           ${
             scrolled
               ? 'bg-surface/80 backdrop-blur-xl border border-border-glow shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-              : 'bg-surface/50 backdrop-blur-md border border-border'
+              : 'bg-surface/70 backdrop-blur-md border border-border'
           }
         `}
       >
