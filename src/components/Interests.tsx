@@ -26,50 +26,50 @@ const INTERESTS: Interest[] = [
     icon: Gamepad2,
     label: 'Competitive Gaming',
     detail: 'FPS & strategy — always in ranked',
-    accentColor: 'text-red-400',
-    borderHover: 'group-hover:border-red-500/30',
+    accentColor: 'text-accent-purple',
+    borderHover: 'group-hover:border-accent-purple/30',
   },
   {
     icon: Monitor,
     label: 'PC Gaming',
     detail: 'Custom rig, immersive worlds',
-    accentColor: 'text-violet-400',
-    borderHover: 'group-hover:border-violet-500/30',
+    accentColor: 'text-accent-blue-bright',
+    borderHover: 'group-hover:border-accent-blue/30',
   },
   {
     icon: Mountain,
     label: 'Trekking',
     detail: 'Mountains over meetings',
-    accentColor: 'text-emerald-400',
-    borderHover: 'group-hover:border-emerald-500/30',
+    accentColor: 'text-accent-cyan',
+    borderHover: 'group-hover:border-accent-cyan/30',
   },
   {
     icon: Plane,
     label: 'Travel',
     detail: 'New cities, new perspectives',
-    accentColor: 'text-blue-400',
-    borderHover: 'group-hover:border-blue-500/30',
+    accentColor: 'text-accent-blue',
+    borderHover: 'group-hover:border-accent-blue/30',
   },
   {
     icon: Footprints,
     label: 'Sneakers',
     detail: 'The collection keeps growing',
-    accentColor: 'text-amber-400',
-    borderHover: 'group-hover:border-amber-500/30',
+    accentColor: 'text-accent-purple',
+    borderHover: 'group-hover:border-accent-purple/30',
   },
   {
     icon: Watch,
     label: 'Watches',
     detail: 'Mechanical craftsmanship',
-    accentColor: 'text-slate-300',
-    borderHover: 'group-hover:border-slate-400/30',
+    accentColor: 'text-accent-cyan',
+    borderHover: 'group-hover:border-accent-cyan/30',
   },
   {
     icon: CookingPot,
     label: 'Cooking',
     detail: 'Experiments in the kitchen',
-    accentColor: 'text-orange-400',
-    borderHover: 'group-hover:border-orange-500/30',
+    accentColor: 'text-accent-blue-bright',
+    borderHover: 'group-hover:border-accent-blue/30',
   },
 ];
 
@@ -129,7 +129,7 @@ export default function Interests() {
   const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section className="relative py-20 bg-navy overflow-hidden">
+    <section id="interests" className="relative py-28 bg-navy overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-accent-blue/4 blur-[90px] rounded-full" />
       </div>
@@ -140,7 +140,7 @@ export default function Interests() {
           animate={isInView ? { opacity: 1 } : {}}
           className="font-mono text-accent-cyan text-sm mb-2 tracking-widest"
         >
-          // BEYOND_THE_CODE
+          06. INTERESTS
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -103,7 +103,7 @@ export default function Contact() {
           animate={isInView ? { opacity: 1 } : {}}
           className="font-mono text-accent-cyan text-sm mb-2 tracking-widest"
         >
-          06. CONTACT
+          07. CONTACT
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -233,7 +233,8 @@ export default function Contact() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors"
+                        disabled={sending}
+                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     <div>
@@ -248,7 +249,8 @@ export default function Contact() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
-                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors"
+                        disabled={sending}
+                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -265,7 +267,8 @@ export default function Contact() {
                       value={form.subject}
                       onChange={handleChange}
                       placeholder="What's this about?"
-                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors"
+                      disabled={sending}
+                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -281,7 +284,8 @@ export default function Contact() {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project, collaboration idea, or just say hello..."
-                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors resize-none"
+                      disabled={sending}
+                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
 

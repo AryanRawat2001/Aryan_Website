@@ -30,7 +30,7 @@ export default function Home() {
       <Projects />
       <SectionDivider variant="dots" />
       <Credentials />
-      <SectionDivider variant="dots" />
+      <SectionDivider variant="wave" />
       <Interests />
       <SectionDivider variant="gradient" />
       <Contact />
