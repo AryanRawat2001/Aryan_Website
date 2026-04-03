@@ -1,6 +1,7 @@
 'use client';
 
 import { Github, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
 import { scrollToSection } from '@/lib/scroll';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -31,7 +32,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo + tagline */}
           <div className="flex items-center gap-4">
-            <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-10 h-10 rounded-xl object-cover object-top glow-blue" />
+            <Image src="/avatar.jpeg" alt="Aryan Rawat" width={40} height={40} className="w-10 h-10 rounded-xl object-cover object-top glow-blue" />
             <div>
               <div className="font-heading font-semibold text-slate-100">Aryan Rawat</div>
               <div className="text-xs font-mono text-slate-500">

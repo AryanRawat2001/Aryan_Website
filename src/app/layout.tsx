@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Exo_2, Roboto_Mono, Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 const exo2 = Exo_2({
@@ -39,6 +40,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: '/avatar.jpeg',
+    apple: '/avatar.jpeg',
   },
   openGraph: {
     title: 'Aryan Rawat — Data Scientist',
@@ -85,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-navy text-slate-200 font-body antialiased overflow-x-hidden">
         {children}
+        <Analytics />
       </body>
     </html>
   );

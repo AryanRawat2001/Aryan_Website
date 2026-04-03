@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 export default function PageLoader() {
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ export default function PageLoader() {
               transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
               className="w-16 h-16 rounded-2xl overflow-hidden glow-blue"
             >
-              <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-full h-full object-cover object-top" />
+              <Image src="/avatar.jpeg" alt="Aryan Rawat" width={64} height={64} className="w-full h-full object-cover object-top" priority />
             </motion.div>
 
             {/* Loading bar */}

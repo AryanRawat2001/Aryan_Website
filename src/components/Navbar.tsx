@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { scrollToSection } from '@/lib/scroll';
 
 const navLinks = [
@@ -23,6 +24,8 @@ export default function Navbar() {
 
   const lastScrolled = useRef(false);
   const lastSection = useRef('');
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   const updateActiveSection = useCallback(() => {
     const sections = navLinks.map((l) => l.href.slice(1));
@@ -55,6 +58,42 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [mobileOpen]);
+
+  // Focus trap + Escape key for mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const menu = mobileMenuRef.current;
+      if (!menu) return;
+      const focusable = menu.querySelectorAll<HTMLElement>('button, a, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    // Auto-focus first menu item
+    const menu = mobileMenuRef.current;
+    if (menu) {
+      const first = menu.querySelector<HTMLElement>('button');
+      first?.focus();
+    }
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [mobileOpen]);
 
   const handleNavClick = (href: string) => {
@@ -96,7 +135,7 @@ export default function Navbar() {
           aria-label="Scroll to top"
           className="flex items-center gap-2.5 cursor-pointer"
         >
-          <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-8 h-8 rounded-lg object-cover object-top glow-blue" />
+          <Image src="/avatar.jpeg" alt="Aryan Rawat" width={32} height={32} className="w-8 h-8 rounded-lg object-cover object-top glow-blue" />
           <span className="font-heading font-semibold text-slate-100 hidden sm:block">
             Aryan Rawat
           </span>
@@ -139,9 +178,11 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
+          ref={toggleRef}
           onClick={() => setMobileOpen((v) => !v)}
           className="md:hidden p-2 text-slate-400 hover:text-slate-100 transition-colors cursor-pointer rounded-lg hover:bg-surface-3 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -151,6 +192,8 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            ref={mobileMenuRef}
+            role="menu"
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}

@@ -31,7 +31,9 @@ B.Tech CSE (Cloud), SRM Chennai '23, 8.89 CGPA. Prior: Comviva Technologies, Tec
 | Animations | Framer Motion |
 | Icons | Lucide React |
 | Fonts | Exo 2 (headings) · Inter (body) · Roboto Mono (code) |
+| Images | Next.js `Image` component (all avatar usages) |
 | Form | Formspree (`xeeprqgl`) |
+| Analytics | @vercel/analytics |
 | Deployment | Vercel |
 
 ---
@@ -55,10 +57,11 @@ B.Tech CSE (Cloud), SRM Chennai '23, 8.89 CGPA. Prior: Comviva Technologies, Tec
 src/
 ├── app/
 │   ├── globals.css           # Custom utilities, scrollbar, selection styles
-│   ├── layout.tsx            # Fonts, metadata, JSON-LD, metadataBase
+│   ├── layout.tsx            # Fonts, metadata, JSON-LD, Analytics, favicon
+│   ├── opengraph-image.tsx   # Dynamic OG image (edge runtime, 1200×630)
 │   └── page.tsx              # Section composition + dividers
 ├── components/
-│   ├── Navbar.tsx            # Floating glass navbar, scroll-spy, mobile menu, 7 links
+│   ├── Navbar.tsx            # Floating glass navbar, scroll-spy, mobile menu + focus trap, 7 links
 │   ├── Hero.tsx              # Particles, text scramble, magnetic buttons, code card, parallax
 │   ├── About.tsx             # Bio, quick facts, BMS badge, approach items
 │   ├── Skills.tsx            # Bento grid, radial proficiency rings, 20 tools
@@ -126,8 +129,10 @@ Contact → Footer → ScrollToTop
 - **metadataBase:** `https://aryanrawat.vercel.app`
 - **Canonical URL:** `/` (via alternates)
 - **OpenGraph:** Title, description, type, url configured
+- **OG Image:** Dynamic via `opengraph-image.tsx` (edge runtime, 1200×630, gradient + avatar + skills)
+- **Favicon:** `/avatar.jpeg` via `metadata.icons`
 - **JSON-LD:** Person schema with name, jobTitle, url, worksFor, email, sameAs (GitHub + LinkedIn), knowsAbout
-- **Missing:** OG image (`/public/og-image.png`), favicon
+- **Analytics:** `@vercel/analytics` integrated in layout.tsx
 
 ---
 
@@ -145,19 +150,14 @@ Contact → Footer → ScrollToTop
 
 ## Performance
 
-- **Bundle:** 153 kB first load JS, zero build errors
-- **Optimizations:** Canvas IntersectionObserver, squared-distance (no Math.sqrt), GPU compositing, requestAnimationFrame debounced resize, `prefers-reduced-motion` respected
+- **Bundle:** 158 kB first load JS, zero build errors
+- **Optimizations:** Canvas IntersectionObserver, squared-distance (no Math.sqrt), GPU compositing, requestAnimationFrame debounced resize, `prefers-reduced-motion` respected, Next.js `Image` for avatar optimization
 
 ---
 
 ## Known Placeholders & Remaining Work
 
 - `/public/resume.pdf` — **0 bytes placeholder**, needs actual resume
-- `/public/og-image.png` — missing, needed for social share previews
-- `/public/favicon.ico` — missing
-- Next.js `Image` component not used (raw `<img>` for avatar in 4 files)
-- Mobile menu lacks focus trap (accessibility)
-- No Vercel Analytics installed
 
 ---
 
@@ -184,4 +184,4 @@ git push origin main # Triggers Vercel auto-deploy
 
 ---
 
-*Last updated: 2026-04-03 — Build: 153 kB, zero errors, production-ready*
+*Last updated: 2026-04-03 — Build: 158 kB, zero errors, production-ready*

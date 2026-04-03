@@ -9,6 +9,7 @@ import {
   useSpring,
 } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
 import ParticleNetwork from './ParticleNetwork';
 import { scrollToSection } from '@/lib/scroll';
 
@@ -385,10 +386,13 @@ export default function Hero() {
             >
               <div className="relative">
                 <div className="w-44 h-44 rounded-2xl overflow-hidden gradient-border shadow-[0_16px_48px_rgba(59,130,246,0.2)]">
-                  <img
+                  <Image
                     src="/avatar.jpeg"
                     alt="Aryan Rawat"
+                    width={176}
+                    height={176}
                     className="w-full h-full object-cover object-top"
+                    priority
                   />
                 </div>
                 {/* Glow ring behind */}
