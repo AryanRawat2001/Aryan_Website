@@ -8,6 +8,7 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Credentials from '@/components/Credentials';
 import Footer from '@/components/Footer';
+import Interests from '@/components/Interests';
 import SectionDivider from '@/components/SectionDivider';
 import PageLoader from '@/components/PageLoader';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -29,6 +30,8 @@ export default function Home() {
       <Projects />
       <SectionDivider variant="dots" />
       <Credentials />
+      <SectionDivider variant="dots" />
+      <Interests />
       <SectionDivider variant="gradient" />
       <Contact />
       <Footer />
