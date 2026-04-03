@@ -11,12 +11,10 @@ import Footer from '@/components/Footer';
 import SectionDivider from '@/components/SectionDivider';
 import PageLoader from '@/components/PageLoader';
 import ScrollToTop from '@/components/ScrollToTop';
-import CustomCursor from '@/components/CustomCursor';
 
 export default function Home() {
   return (
     <main className="relative">
-      <CustomCursor />
       <PageLoader />
       <Navbar />
       <Hero />

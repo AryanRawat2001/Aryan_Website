@@ -34,13 +34,6 @@ body {
   background: #3b82f6;
 }
 
-/* Hide default cursor on desktop (custom cursor replaces it) */
-@media (pointer: fine) and (hover: hover) {
-  html {
-    cursor: none;
-  }
-}
-
 /* Text selection */
 ::selection {
   background: rgba(59, 130, 246, 0.35);
