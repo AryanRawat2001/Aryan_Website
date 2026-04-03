@@ -100,9 +100,7 @@ export default function Navbar() {
           }}
           className="flex items-center gap-2.5 cursor-pointer"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center text-white font-heading font-bold text-sm glow-blue">
-            AR
-          </div>
+          <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-8 h-8 rounded-lg object-cover object-top glow-blue" />
           <span className="font-heading font-semibold text-slate-100 hidden sm:block">
             Aryan Rawat
           </span>

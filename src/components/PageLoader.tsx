@@ -26,9 +26,9 @@ export default function PageLoader() {
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
-              className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center glow-blue"
+              className="w-16 h-16 rounded-2xl overflow-hidden glow-blue"
             >
-              <span className="font-heading font-bold text-2xl text-white">AR</span>
+              <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-full h-full object-cover object-top" />
             </motion.div>
 
             {/* Loading bar */}

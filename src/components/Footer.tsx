@@ -37,9 +37,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo + tagline */}
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center text-white font-heading font-bold text-sm glow-blue">
-              AR
-            </div>
+            <img src="/avatar.jpeg" alt="Aryan Rawat" className="w-10 h-10 rounded-xl object-cover object-top glow-blue" />
             <div>
               <div className="font-heading font-semibold text-slate-100">Aryan Rawat</div>
               <div className="text-xs font-mono text-slate-500">
