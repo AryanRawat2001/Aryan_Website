@@ -1,12 +1,15 @@
 'use client';
 
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowUp } from 'lucide-react';
+
+const CIRCUMFERENCE = 2 * Math.PI * 20; // r=20
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   const { scrollYProgress } = useScroll();
+  const dashOffset = useTransform(scrollYProgress, [0, 1], [CIRCUMFERENCE, 0]);
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     setVisible(v > 0.15);
@@ -25,27 +28,18 @@ export default function ScrollToTop() {
           aria-label="Scroll to top"
         >
           <ArrowUp size={18} className="group-hover:-translate-y-0.5 transition-transform" />
-          {/* Progress ring */}
           <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 48 48">
             <circle
-              cx="24"
-              cy="24"
-              r="20"
-              fill="none"
-              stroke="currentColor"
-              className="text-border"
-              strokeWidth="1.5"
+              cx="24" cy="24" r="20"
+              fill="none" stroke="currentColor"
+              className="text-border" strokeWidth="1.5"
             />
             <motion.circle
-              cx="24"
-              cy="24"
-              r="20"
-              fill="none"
-              stroke="url(#scrollGrad)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeDasharray={125.66}
-              style={{ strokeDashoffset: 125.66 * (1 - scrollYProgress.get()) }}
+              cx="24" cy="24" r="20"
+              fill="none" stroke="url(#scrollGrad)"
+              strokeWidth="1.5" strokeLinecap="round"
+              strokeDasharray={CIRCUMFERENCE}
+              style={{ strokeDashoffset: dashOffset }}
             />
             <defs>
               <linearGradient id="scrollGrad" x1="0%" y1="0%" x2="100%" y2="100%">

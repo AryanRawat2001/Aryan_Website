@@ -36,8 +36,8 @@ body {
 
 /* Hide default cursor on desktop (custom cursor replaces it) */
 @media (pointer: fine) and (hover: hover) {
-  * {
-    cursor: none !important;
+  html {
+    cursor: none;
   }
 }
 

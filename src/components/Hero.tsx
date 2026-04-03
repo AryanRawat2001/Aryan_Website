@@ -277,10 +277,10 @@ export default function Hero() {
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={roleIndex}
-                    initial={{ opacity: 0, y: 16, filter: 'blur(8px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, y: -16, filter: 'blur(8px)' }}
-                    transition={{ duration: 0.38, ease: 'easeInOut' }}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                     className="font-heading font-semibold text-2xl sm:text-3xl text-accent-blue-bright text-glow-blue whitespace-nowrap"
                   >
                     {ROLES[roleIndex]}

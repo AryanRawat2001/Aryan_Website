@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -19,21 +19,32 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const { scrollYProgress } = useScroll();
 
+  const lastScrolled = useRef(false);
+  const lastSection = useRef('');
+
   const updateActiveSection = useCallback(() => {
     const sections = navLinks.map((l) => l.href.slice(1));
     const offset = 120;
+    let found = '';
     for (let i = sections.length - 1; i >= 0; i--) {
       const el = document.getElementById(sections[i]);
       if (el && el.getBoundingClientRect().top <= offset) {
-        setActiveSection(sections[i]);
-        return;
+        found = sections[i];
+        break;
       }
     }
-    setActiveSection('');
+    if (found !== lastSection.current) {
+      lastSection.current = found;
+      setActiveSection(found);
+    }
   }, []);
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
-    setScrolled(window.scrollY > 20);
+    const isScrolled = window.scrollY > 20;
+    if (isScrolled !== lastScrolled.current) {
+      lastScrolled.current = isScrolled;
+      setScrolled(isScrolled);
+    }
     updateActiveSection();
   });
 
