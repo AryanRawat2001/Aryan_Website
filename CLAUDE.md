@@ -44,7 +44,7 @@ B.Tech CSE (Cloud), SRM Chennai '23, 8.89 CGPA. Prior: Comviva Technologies, Tec
 - **Surfaces:** `surface` (#0d0d1a), `surface-2` (#14142a), `surface-3` (#1a1a35)
 - **Accents:** `accent-blue` (#3B82F6), `accent-cyan` (#06B6D4), `accent-purple` (#8B5CF6)
 - **Text:** `slate-100` to `slate-600` scale
-- **CSS utils:** `.glow-blue`, `.gradient-text`, `.gradient-border` (in globals.css)
+- **CSS utils:** `.glow-blue`, `.gradient-text`, `.gradient-border`, `.min-h-dvh`, `.pb-safe` (in globals.css)
 - **Status colors:** `emerald-400` for available/current/success indicators (only exception to blue/cyan/purple palette)
 - **Error color:** `red-400` for form errors
 - **Terminal dots:** Standard red/yellow/green convention in Hero code card
@@ -112,14 +112,21 @@ Contact → Footer → ScrollToTop
 ## Key Implementation Details
 
 - **All components are `'use client'`** (Framer Motion requires it)
+- **Viewport:** `viewportFit: 'cover'` enables safe area insets on notched phones
+- **Safe area insets:** Navbar, Hero padding, ScrollToTop, and Footer use `env(safe-area-inset-*)` for notched device support
+- **Navbar positioning:** `top-[calc(1rem+env(safe-area-inset-top,0px))]` — clears notch on modern iPhones
 - **Navbar delay:** 2.4s to sync with PageLoader (1.8s + 0.6s fade)
 - **Navbar background:** 70% opacity when not scrolled, 80% when scrolled
-- **ParticleNetwork:** Squared-distance optimization, DPR capped at 2, IntersectionObserver-gated
+- **Hero min-height:** Uses custom `min-h-dvh` utility (100dvh with 100vh fallback) to account for mobile browser chrome
+- **Hero padding:** `pt-[calc(7rem+env(safe-area-inset-top,0px))]` — safe-area-aware
 - **Hero parallax:** `useMotionValue` + `useSpring` (stiffness:60, damping:20)
+- **ParticleNetwork:** Squared-distance optimization, DPR capped at 2, IntersectionObserver-gated
 - **AnimatedCounter:** requestAnimationFrame with proper `cancelAnimationFrame` cleanup
 - **DataVisualization:** `animationId` initialized to 0, respects `prefers-reduced-motion`
-- **ScrollToTop:** Only re-renders when visibility actually changes (prev !== shouldShow)
+- **ScrollToTop:** Only re-renders when visibility actually changes (prev !== shouldShow); uses safe-area-inset-bottom
+- **Footer:** `pb-safe` class for home indicator bar clearance on notched phones
 - **Contact form:** Error clears on input change, all inputs disabled during submission
+- **Scrollbar:** Webkit `::-webkit-scrollbar` + standard `scrollbar-width: thin` / `scrollbar-color` for Firefox/Windows
 - **All sections use py-28** for consistent vertical rhythm (including DataVisualization)
 
 ---
@@ -127,6 +134,8 @@ Contact → Footer → ScrollToTop
 ## SEO & Metadata
 
 - **metadataBase:** `https://aryanrawat.vercel.app`
+- **Viewport:** `width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover` (via `export const viewport`)
+- **Theme color:** `#050510` (via viewport export, not metadata.other)
 - **Canonical URL:** `/` (via alternates)
 - **OpenGraph:** Title, description, type, url configured
 - **OG Image:** Dynamic via `opengraph-image.tsx` (edge runtime, 1200×630, gradient + avatar + skills)
@@ -148,10 +157,14 @@ Contact → Footer → ScrollToTop
 
 ---
 
-## Performance
+## Performance & Cross-Platform
 
 - **Bundle:** 158 kB first load JS, zero build errors
 - **Optimizations:** Canvas IntersectionObserver, squared-distance (no Math.sqrt), GPU compositing, requestAnimationFrame debounced resize, `prefers-reduced-motion` respected, Next.js `Image` for avatar optimization
+- **Mobile safe areas:** `viewport-fit: cover` + `env(safe-area-inset-*)` on Navbar, Hero, ScrollToTop, Footer
+- **Mobile viewport:** `min-h-dvh` utility (100dvh with 100vh fallback) for accurate mobile viewport height
+- **Cross-platform scrollbar:** Webkit pseudo-elements + standard `scrollbar-width`/`scrollbar-color` for Firefox/Windows
+- **Responsive grids:** Skills uses `lg:grid-cols-3`, Interests uses `md:grid-cols-3 lg:grid-cols-4` — tuned for Windows 13" at 150% scaling (~1263px CSS width)
 
 ---
 
@@ -170,6 +183,9 @@ Contact → Footer → ScrollToTop
 - **Section numbering must stay sequential** 01-07
 - **Color palette:** accent-blue/cyan/purple only (emerald only for status indicators)
 - **All sections use py-28** for spacing consistency
+- **Safe area insets are required** on all fixed/sticky elements — use `env(safe-area-inset-*)` with `calc()`
+- **Use `min-h-dvh` not `min-h-screen`** for full-viewport sections to avoid mobile browser chrome issues
+- **Breakpoints must work at ~1263px CSS width** (Windows 13" at 1920×1080 + 150% scaling + scrollbar)
 
 ---
 
@@ -184,4 +200,4 @@ git push origin main # Triggers Vercel auto-deploy
 
 ---
 
-*Last updated: 2026-04-03 — Build: 158 kB, zero errors, production-ready*
+*Last updated: 2026-04-09 — Build: 158 kB, zero errors, cross-platform safe areas + responsive grid fixes*

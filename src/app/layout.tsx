@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Exo_2, Roboto_Mono, Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
@@ -22,6 +22,14 @@ const inter = Inter({
   variable: '--font-body',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#050510',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aryanrawat.vercel.app'),
@@ -50,9 +58,6 @@ export const metadata: Metadata = {
     description: 'Data Scientist at Bristol Myers Squibb. ML · GenAI · Clinical Analytics.',
     type: 'website',
     url: '/',
-  },
-  other: {
-    'theme-color': '#050510',
   },
 };
 

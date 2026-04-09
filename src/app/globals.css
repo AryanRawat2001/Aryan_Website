@@ -11,6 +11,8 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  scrollbar-width: thin;
+  scrollbar-color: #1e1e3a #050510;
 }
 
 body {
@@ -74,6 +76,13 @@ body {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+  .min-h-dvh {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 

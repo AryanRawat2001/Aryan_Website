@@ -24,7 +24,7 @@ const NAV = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border bg-navy">
+    <footer className="relative border-t border-border bg-navy pb-safe">
       {/* Top glow line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px bg-gradient-to-r from-transparent via-accent-blue/30 to-transparent" />
 

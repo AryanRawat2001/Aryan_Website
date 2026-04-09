@@ -42,7 +42,8 @@ A premium, dark-themed portfolio website built with Next.js 14, showcasing my wo
 - **Scroll-Driven Parallax** — Background orbs that shift with scroll position
 - **Scroll-Spy Navbar** — Active section tracking with animated underline indicator and progress bar
 - **Cinematic Page Loader** — Logo bounce + gradient bar intro sequence
-- **Responsive** — Fully responsive from mobile to 4K
+- **Responsive** — Fully responsive from mobile to 4K, safe area support for notched devices
+- **Cross-Platform** — Consistent rendering across macOS, Windows, iOS, and Android
 - **Accessible** — Reduced motion support, ARIA labels, keyboard navigation
 
 ---
@@ -114,14 +115,18 @@ src/
 
 ---
 
-## Performance
+## Performance & Cross-Platform
 
-- **153 kB** first load JS
+- **158 kB** first load JS
 - Zero build errors
 - Canvas animations gated by IntersectionObserver
 - GPU-composited layers with `will-change` hints
 - Squared-distance optimization (no `Math.sqrt` in hot loops)
 - `prefers-reduced-motion` respected
+- **Mobile safe areas** — `viewport-fit: cover` + `env(safe-area-inset-*)` for notched phones (navbar, hero, scroll-to-top, footer)
+- **Dynamic viewport height** — `100dvh` with `100vh` fallback for correct mobile sizing
+- **Cross-platform scrollbar** — Styled for both Webkit and Firefox/Windows
+- **Responsive grids** — Tuned breakpoints for consistent layouts from Windows 13" to Mac 14"
 
 ---
 

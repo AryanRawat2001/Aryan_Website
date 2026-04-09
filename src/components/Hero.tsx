@@ -200,7 +200,7 @@ export default function Hero() {
   }, [rawMouseX, rawMouseY]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+    <section className="relative min-h-dvh flex items-center overflow-hidden bg-navy">
       {/* Particle network */}
       <ParticleNetwork />
 
@@ -221,7 +221,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-[calc(7rem+env(safe-area-inset-top,0px))] pb-16">
         <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
           {/* LEFT — Main content */}
           <div className="text-center lg:text-left items-center lg:items-start flex flex-col">

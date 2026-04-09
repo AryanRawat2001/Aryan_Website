@@ -112,7 +112,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut', delay: 2.4 }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl"
+      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl top-[calc(1rem+env(safe-area-inset-top,0px))]"
     >
       <nav
         className={`
