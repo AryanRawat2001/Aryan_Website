@@ -112,7 +112,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut', delay: 2.4 }}
-      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl top-[calc(1rem+env(safe-area-inset-top,0px))]"
+      className="fixed inset-x-0 mx-auto z-50 w-[calc(100%-2rem)] max-w-7xl top-[calc(1rem+env(safe-area-inset-top,0px))]"
     >
       <nav
         className={`
@@ -142,12 +142,12 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden xl:flex items-center gap-1">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className={`relative px-4 py-1.5 text-sm rounded-lg transition-all duration-200 cursor-pointer font-body focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none ${
+                className={`relative px-3 xl:px-4 py-1.5 text-sm rounded-lg transition-all duration-200 cursor-pointer font-body focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none ${
                   activeSection === link.href.slice(1)
                     ? 'text-accent-blue-bright bg-accent-blue/10'
                     : 'text-slate-400 hover:text-slate-100 hover:bg-surface-3'
@@ -167,7 +167,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden xl:flex items-center gap-3">
           <button
             onClick={() => handleNavClick('#contact')}
             className="px-4 py-2 text-sm font-semibold bg-accent-blue hover:bg-accent-blue-bright text-white rounded-xl transition-all duration-200 cursor-pointer glow-blue focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
@@ -180,7 +180,7 @@ export default function Navbar() {
         <button
           ref={toggleRef}
           onClick={() => setMobileOpen((v) => !v)}
-          className="md:hidden p-2 text-slate-400 hover:text-slate-100 transition-colors cursor-pointer rounded-lg hover:bg-surface-3 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
+          className="xl:hidden p-2 text-slate-400 hover:text-slate-100 transition-colors cursor-pointer rounded-lg hover:bg-surface-3 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >

@@ -41,14 +41,15 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: 'GenAI Code Documentation Tool',
-    description: 'Automated code documentation with Mistral LLM — 95% accuracy',
+    title: 'OctaSense AI',
+    description: '8-agent AI pipeline for automated EDA and decision intelligence',
     longDesc:
-      'Designed and deployed a generative AI solution on Google Cloud Platform that automatically generates code documentation using Mistral LLM. Achieved 95% documentation accuracy, boosted developer productivity by 25%, and reduced model training time by 30% through scalable cloud architecture.',
+      'Built at BMS — an end-to-end multi-agent system powered by 8 specialized Claude Sonnet 4 agents in a 5-stage parallel pipeline. Upload any CSV and get automated data profiling, interactive EDA charts, anomaly detection, feature engineering, ML model recommendations, business interpretation, and a 7-sheet Excel report — all streamed live with no code required.',
     icon: Bot,
-    gradient: 'from-cyan-600/20 to-teal-600/20',
-    tags: ['Mistral LLM', 'Python', 'GCP', 'GenAI', 'FastAPI'],
-    github: 'https://github.com/AryanRawat2001/',
+    gradient: 'from-violet-600/20 to-indigo-600/20',
+    tags: ['Claude Sonnet 4', 'Multi-Agent', 'Python', 'FastAPI', 'React', 'AWS Bedrock', 'EDA'],
+    github: 'https://github.com/AryanRawat2001/OctaSense-AI-MultiAgent-EDA-Decision-Copilot',
+    featured: true,
   },
   {
     title: 'Demand Forecasting & Planning',
