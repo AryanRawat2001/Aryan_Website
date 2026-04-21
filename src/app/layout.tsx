@@ -49,10 +49,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: '/avatar.jpeg',
-    apple: '/avatar.jpeg',
-  },
   openGraph: {
     title: 'Aryan Rawat — Data Scientist',
     description: 'Data Scientist at Bristol Myers Squibb. ML · GenAI · Clinical Analytics.',

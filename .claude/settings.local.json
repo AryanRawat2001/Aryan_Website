@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(sips --version)",
+      "Bash(sips -s format jpeg /Users/aryanrawat2001/Aryan_Website/public/IMG_8898.HEIC --out /Users/aryanrawat2001/Aryan_Website/public/avatar.jpeg)",
+      "Bash(npx tsc *)",
+      "Bash(python3 *)",
+      "Bash(git -C /Users/aryanrawat2001/Aryan_Website status)",
+      "Bash(git -C /Users/aryanrawat2001/Aryan_Website diff --stat)",
+      "Bash(git *)"
     ]
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { MapPin, Mail, Phone, Briefcase, Brain, FlaskConical, GraduationCap } from 'lucide-react';
 
@@ -77,9 +78,66 @@ export default function About() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 min-[900px]:grid-cols-[1fr_400px] gap-16 items-start"
+          className="grid md:grid-cols-2 min-[1100px]:grid-cols-[360px_1fr_360px] gap-12 lg:gap-14 items-start"
         >
-          {/* LEFT — Bio */}
+          {/* LEFT — Editorial portrait */}
+          <motion.div variants={itemVariants} className="md:col-span-2 min-[1100px]:col-span-1 flex justify-center min-[1100px]:justify-start">
+            <div className="relative group">
+              {/* Frame — 3:4 portrait matches source photo */}
+              <div className="relative w-[300px] sm:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden gradient-border shadow-[0_24px_70px_rgba(59,130,246,0.25)]">
+                <Image
+                  src="/avatar.jpeg"
+                  alt="Aryan Rawat — Data Scientist at Bristol Myers Squibb"
+                  width={900}
+                  height={1200}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+                {/* Subtle vignette for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent pointer-events-none" />
+                {/* Corner label */}
+                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-navy/70 backdrop-blur-md border border-border-glow">
+                  <span className="text-[10px] font-mono text-accent-cyan tracking-widest uppercase">01 · Portrait</span>
+                </div>
+                {/* Bottom caption over image */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+                  <div>
+                    <div className="text-[10px] font-mono text-slate-400 tracking-widest uppercase mb-1">
+                      // signed
+                    </div>
+                    <div className="font-heading font-bold text-slate-100 text-lg leading-tight">
+                      Aryan Rawat
+                    </div>
+                    <div className="text-xs text-slate-400 font-mono">Hyderabad, IN</div>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[10px] font-mono text-emerald-400 tracking-wider">AVAILABLE</span>
+                  </div>
+                </div>
+              </div>
+              {/* Layered glow */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent-blue/25 via-accent-cyan/15 to-accent-purple/25 blur-2xl -z-10" />
+              {/* Floating stat chip */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden sm:block absolute -right-4 top-8 bg-surface-2/90 backdrop-blur-md border border-border-glow rounded-xl px-3 py-2 shadow-lg"
+              >
+                <div className="text-[10px] font-mono text-slate-500 leading-tight">cgpa</div>
+                <div className="text-base font-heading font-bold text-slate-100 leading-tight">8.89</div>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="hidden sm:block absolute -left-5 bottom-16 bg-surface-2/90 backdrop-blur-md border border-border-glow rounded-xl px-3 py-2 shadow-lg"
+              >
+                <div className="text-[10px] font-mono text-slate-500 leading-tight">focus</div>
+                <div className="text-sm font-heading font-semibold text-accent-cyan leading-tight">ML · GenAI</div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* MIDDLE — Bio */}
           <div>
             <motion.p variants={itemVariants} className="text-slate-300 text-lg leading-relaxed mb-5 font-body">
               I&apos;m a <span className="text-slate-100 font-semibold">Data Scientist at Bristol Myers Squibb</span>,

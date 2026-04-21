@@ -9,7 +9,6 @@ import {
   useSpring,
 } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import Image from 'next/image';
 import ParticleNetwork from './ParticleNetwork';
 import { scrollToSection } from '@/lib/scroll';
 
@@ -377,29 +376,6 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="hidden lg:block relative"
           >
-            {/* Profile photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-6 flex justify-center"
-            >
-              <div className="relative">
-                <div className="w-44 h-44 rounded-2xl overflow-hidden gradient-border shadow-[0_16px_48px_rgba(59,130,246,0.2)]">
-                  <Image
-                    src="/avatar.jpeg"
-                    alt="Aryan Rawat"
-                    width={176}
-                    height={176}
-                    className="w-full h-full object-cover object-top"
-                    priority
-                  />
-                </div>
-                {/* Glow ring behind */}
-                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-accent-blue/20 via-accent-cyan/10 to-accent-purple/20 blur-xl -z-10" />
-              </div>
-            </motion.div>
-
             <div className="gradient-border rounded-2xl bg-surface/60 backdrop-blur-xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)]">
               {/* Terminal header */}
               <div className="flex items-center gap-2 px-5 py-4 border-b border-border bg-surface-2/80">
