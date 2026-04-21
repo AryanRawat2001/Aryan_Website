@@ -63,7 +63,7 @@ src/
 ├── components/
 │   ├── Navbar.tsx            # Floating glass navbar, scroll-spy, mobile menu + focus trap, 7 links
 │   ├── Hero.tsx              # Particles, text scramble, magnetic buttons, code card, parallax
-│   ├── About.tsx             # Bio, quick facts, BMS badge, approach items
+│   ├── About.tsx             # Editorial 3-col: portrait + bio + quick facts, BMS badge, approach items
 │   ├── Skills.tsx            # Bento grid, radial proficiency rings, 20 tools
 │   ├── DataVisualization.tsx # Neural network canvas animation (aria-hidden)
 │   ├── Experience.tsx        # Timeline: BMS, Comviva, Tech Mahindra + animated counter
@@ -139,7 +139,7 @@ Contact → Footer → ScrollToTop
 - **Canonical URL:** `/` (via alternates)
 - **OpenGraph:** Title, description, type, url configured
 - **OG Image:** Dynamic via `opengraph-image.tsx` (edge runtime, 1200×630, gradient + avatar + skills)
-- **Favicon:** `/avatar.jpeg` via `metadata.icons`
+- **Favicon:** Transparent `src/app/icon.png` (no logo in tab)
 - **JSON-LD:** Person schema with name, jobTitle, url, worksFor, email, sameAs (GitHub + LinkedIn), knowsAbout
 - **Analytics:** `@vercel/analytics` integrated in layout.tsx
 
@@ -200,4 +200,4 @@ git push origin main # Triggers Vercel auto-deploy
 
 ---
 
-*Last updated: 2026-04-09 — Build: 158 kB, zero errors, cross-platform safe areas + responsive grid fixes*
+*Last updated: 2026-04-21 — Editorial portrait in About, removed Hero avatar, transparent favicon*
