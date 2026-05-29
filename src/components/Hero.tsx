@@ -8,12 +8,13 @@ import {
   useTransform,
   useSpring,
 } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import ParticleNetwork from './ParticleNetwork';
 import { scrollToSection } from '@/lib/scroll';
+import { SOCIAL_LINKS } from '@/lib/site';
 
 // ---- Text Scramble Hook ----
-const SCRAMBLE_CHARS = '!@#$%^&*()_+{}|:<>?~';
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function useTextScramble(text: string, delay: number = 300, duration: number = 1500) {
   const [display, setDisplay] = useState('');
@@ -23,6 +24,13 @@ function useTextScramble(text: string, delay: number = 300, duration: number = 1
     const length = text.length;
     let frame: ReturnType<typeof setTimeout>;
     let startTime: number;
+
+    // Honor reduced-motion: render the final text immediately, skip the scramble loop.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(text);
+      setDone(true);
+      return;
+    }
 
     const timeout = setTimeout(() => {
       startTime = Date.now();
@@ -144,7 +152,7 @@ const ROLES = [
 const STATS = [
   { label: 'Experience', value: '2+', unit: 'yrs' },
   { label: 'Projects', value: '10+', unit: '' },
-  { label: 'Domains', value: '6+', unit: '' },
+  { label: 'Domains', value: '2', unit: '' },
 ];
 
 const CODE_LINES = [
@@ -178,6 +186,8 @@ export default function Hero() {
   const orb3Y = useTransform(mouseY, [0, 1], [-25, 25]);
 
   useEffect(() => {
+    // Don't auto-rotate the role for users who prefer reduced motion.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
     }, 2800);
@@ -252,10 +262,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl leading-none mb-4 gradient-text whitespace-pre-line"
+              className="font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight mb-4 gradient-text whitespace-pre-line"
               aria-label="Aryan Rawat"
             >
-              {scrambled.display || '\u00A0'}
+              {scrambled.display || '\u00A0\n\u00A0'}
             </motion.h1>
 
             {/* Role cycling */}
@@ -350,18 +360,14 @@ export default function Hero() {
               transition={{ delay: 0.85 }}
               className="flex gap-3 mt-8"
             >
-              {[
-                { icon: Github, label: 'GitHub', href: 'https://github.com/AryanRawat2001/' },
-                { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-rawat-58551618b/' },
-                { icon: Mail, label: 'Email', href: 'mailto:aryanrawat2001@gmail.com' },
-              ].map(({ icon: Icon, label, href }) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noreferrer' : undefined}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-border hover:border-accent-blue/50 hover:bg-accent-blue/10 text-slate-400 hover:text-accent-blue-bright transition-all duration-200 cursor-pointer hover:scale-110 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
+                  className="w-11 h-11 flex items-center justify-center rounded-xl bg-surface border border-border hover:border-accent-blue/50 hover:bg-accent-blue/10 text-slate-400 hover:text-accent-blue-bright transition-all duration-200 cursor-pointer hover:scale-110 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
                 >
                   <Icon size={18} />
                 </a>

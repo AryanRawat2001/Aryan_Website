@@ -157,8 +157,7 @@ function SkillTile({
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.07 + 0.2 }}
       className={`group relative rounded-2xl bg-surface/60 border border-border p-5 flex flex-col justify-between
         hover:border-accent-blue/40 hover:bg-surface/80 hover:scale-[1.03] hover:shadow-[0_0_30px_var(--glow)]
-        transition-all duration-300 cursor-default
-        ${skill.featured ? '' : ''}`}
+        transition-all duration-300 cursor-default`}
       style={{ '--glow': skill.glowColor } as React.CSSProperties}
     >
       {/* Top gradient accent bar */}
@@ -261,7 +260,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 mb-4 relative inline-block"
+          className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 mb-4 relative inline-block"
         >
           Skills & Expertise
           <motion.span

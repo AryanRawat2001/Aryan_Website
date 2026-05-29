@@ -5,16 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { scrollToSection } from '@/lib/scroll';
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Credentials', href: '#credentials' },
-  { label: 'Interests', href: '#interests' },
-  { label: 'Contact', href: '#contact' },
-];
+import { NAV_LINKS as navLinks } from '@/lib/site';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -180,7 +171,7 @@ export default function Navbar() {
         <button
           ref={toggleRef}
           onClick={() => setMobileOpen((v) => !v)}
-          className="xl:hidden p-2 text-slate-400 hover:text-slate-100 transition-colors cursor-pointer rounded-lg hover:bg-surface-3 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
+          className="xl:hidden p-2.5 text-slate-400 hover:text-slate-100 transition-colors cursor-pointer rounded-lg hover:bg-surface-3 focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >

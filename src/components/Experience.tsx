@@ -46,17 +46,17 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
           {count}
           <span className="text-accent-cyan">{suffix}</span>
         </div>
-        <div className="text-sm font-mono text-slate-500 mt-0.5">Years of Professional Impact</div>
+        <div className="text-sm font-mono text-slate-400 mt-0.5">Years of Professional Impact</div>
       </div>
       <div className="ml-auto hidden sm:flex gap-4">
         <div className="text-center">
           <div className="font-heading font-bold text-lg text-slate-200">3</div>
-          <div className="text-xs font-mono text-slate-600">Companies</div>
+          <div className="text-xs font-mono text-slate-400">Companies</div>
         </div>
         <div className="w-px h-10 bg-border" />
         <div className="text-center">
-          <div className="font-heading font-bold text-lg text-slate-200">3</div>
-          <div className="text-xs font-mono text-slate-600">Domains</div>
+          <div className="font-heading font-bold text-lg text-slate-200">2</div>
+          <div className="text-xs font-mono text-slate-400">Domains</div>
         </div>
       </div>
     </motion.div>
@@ -160,7 +160,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 mb-10 relative inline-block"
+          className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 mb-10 relative inline-block"
         >
           Work Experience
           <motion.span
@@ -229,7 +229,7 @@ export default function Experience() {
                           <Calendar size={13} />
                           {exp.period}
                         </div>
-                        <div className="flex items-center gap-1.5 text-slate-500 text-sm font-mono">
+                        <div className="flex items-center gap-1.5 text-slate-400 text-sm font-mono">
                           <MapPin size={13} />
                           {exp.location}
                         </div>

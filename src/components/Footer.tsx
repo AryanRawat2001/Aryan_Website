@@ -1,26 +1,10 @@
 'use client';
 
-import { Github, Linkedin, Mail } from 'lucide-react';
 import Image from 'next/image';
 import { scrollToSection } from '@/lib/scroll';
+import { NAV_LINKS as NAV, SOCIAL_LINKS as LINKS } from '@/lib/site';
 
 const CURRENT_YEAR = new Date().getFullYear();
-
-const LINKS = [
-  { icon: Github, label: 'GitHub', href: 'https://github.com/AryanRawat2001/' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-rawat-58551618b/' },
-  { icon: Mail, label: 'Email', href: 'mailto:aryanrawat2001@gmail.com' },
-];
-
-const NAV = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Credentials', href: '#credentials' },
-  { label: 'Interests', href: '#interests' },
-  { label: 'Contact', href: '#contact' },
-];
 
 export default function Footer() {
   return (
@@ -35,7 +19,7 @@ export default function Footer() {
             <Image src="/avatar.jpeg" alt="Aryan Rawat" width={40} height={40} className="w-10 h-10 rounded-xl object-cover object-top glow-blue" />
             <div>
               <div className="font-heading font-semibold text-slate-100">Aryan Rawat</div>
-              <div className="text-xs font-mono text-slate-500">
+              <div className="text-xs font-mono text-slate-400">
                 Data Scientist · Hyderabad
               </div>
             </div>
@@ -47,7 +31,7 @@ export default function Footer() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="px-3 py-1.5 text-sm text-slate-500 hover:text-slate-200 rounded-lg hover:bg-surface transition-all duration-200 cursor-pointer font-body focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
+                className="px-3 py-1.5 text-sm text-slate-400 hover:text-slate-200 rounded-lg hover:bg-surface transition-all duration-200 cursor-pointer font-body focus-visible:ring-2 focus-visible:ring-accent-blue/50 focus-visible:outline-none"
               >
                 {link.label}
               </button>
@@ -73,10 +57,10 @@ export default function Footer() {
 
         {/* Divider + copyright */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-600 font-mono">
+          <p className="text-xs text-slate-400 font-mono">
             © {CURRENT_YEAR} Aryan Rawat. All rights reserved.
           </p>
-          <p className="text-xs text-slate-600 font-mono">
+          <p className="text-xs text-slate-400 font-mono">
             Built with{' '}
             <span className="text-accent-blue">Next.js</span> ·{' '}
             <span className="text-accent-cyan">Tailwind</span> ·{' '}

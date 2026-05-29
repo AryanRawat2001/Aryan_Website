@@ -112,7 +112,7 @@ function CredentialCard({ cred, index }: { cred: Credential; index: number }) {
           <h4 className="font-body font-semibold text-sm text-slate-200 group-hover:text-slate-100 transition-colors leading-snug">
             {cred.title}
           </h4>
-          <p className="text-xs text-slate-500 font-mono mt-1">{cred.issuer}</p>
+          <p className="text-xs text-slate-400 font-mono mt-1">{cred.issuer}</p>
         </div>
         {cred.highlight && (
           <Sparkles size={14} className="text-amber-400/50 shrink-0 mt-1" />
@@ -143,7 +143,7 @@ export default function Credentials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 mb-4 relative inline-block"
+          className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 mb-4 relative inline-block"
         >
           Publications & Certifications
           <motion.span

@@ -7,14 +7,14 @@ const exo2 = Exo_2({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '600', '700', '800', '900'],
 });
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '600'],
 });
 
 const inter = Inter({
@@ -54,6 +54,11 @@ export const metadata: Metadata = {
     description: 'Data Scientist at Bristol Myers Squibb. ML · GenAI · Clinical Analytics.',
     type: 'website',
     url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aryan Rawat — Data Scientist',
+    description: 'Data Scientist at Bristol Myers Squibb. ML · GenAI · Clinical Analytics.',
   },
 };
 

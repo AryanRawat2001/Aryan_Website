@@ -30,7 +30,7 @@ B.Tech CSE (Cloud), SRM Chennai '23, 8.89 CGPA. Prior: Comviva Technologies, Tec
 | Styling | Tailwind CSS |
 | Animations | Framer Motion |
 | Icons | Lucide React |
-| Fonts | Exo 2 (headings) · Inter (body) · Roboto Mono (code) |
+| Fonts | Exo 2 (headings, weights 400/600/700/800/900) · Inter (body) · Roboto Mono (code, weights 400/600) |
 | Images | Next.js `Image` component (all avatar usages) |
 | Form | Formspree (`xeeprqgl`) |
 | Analytics | @vercel/analytics |
@@ -78,7 +78,8 @@ src/
 │   └── ScrollToTop.tsx       # Floating button, progress ring, optimized re-renders
 └── lib/
     ├── scroll.ts             # Shared scrollToSection() — used by Hero, Navbar, Footer
-    └── utils.ts              # cn() Tailwind class merging
+    ├── site.ts               # Shared NAV_LINKS + SOCIAL_LINKS (single source of truth)
+    └── utils.ts              # cn() Tailwind class merging (currently unused)
 ```
 
 ---
@@ -122,7 +123,14 @@ Contact → Footer → ScrollToTop
 - **Hero parallax:** `useMotionValue` + `useSpring` (stiffness:60, damping:20)
 - **ParticleNetwork:** Squared-distance optimization, DPR capped at 2, IntersectionObserver-gated
 - **AnimatedCounter:** requestAnimationFrame with proper `cancelAnimationFrame` cleanup
-- **DataVisualization:** `animationId` initialized to 0, respects `prefers-reduced-motion`
+- **DataVisualization:** `animationId` initialized to 0, respects `prefers-reduced-motion`, DPR capped at 2
+- **Hero reduced-motion:** text-scramble renders final name instantly + role-cycle interval skipped when `prefers-reduced-motion`
+- **Hero scramble h1:** fallback reserves two lines (`' \n '`) to prevent CLS as text resolves
+- **About portrait:** `sizes` + `placeholder="blur"` (inline blurDataURL) on the Image
+- **Skip link:** `Skip to content` anchor (sr-only, visible on focus) is the first child of `<main>`
+- **Contact form a11y:** error has `role="alert"`; success panel has `role="status" aria-live="polite"`
+- **Touch targets:** Hero socials w-11, project link buttons w-9, navbar toggle p-2.5 (≥44px hit area)
+- **Project card links:** always visible on touch (`[@media(hover:hover)]` gates the hover-reveal) — never hidden on phones
 - **ScrollToTop:** Only re-renders when visibility actually changes (prev !== shouldShow); uses safe-area-inset-bottom
 - **Footer:** `pb-safe` class for home indicator bar clearance on notched phones
 - **Contact form:** Error clears on input change, all inputs disabled during submission
@@ -138,6 +146,7 @@ Contact → Footer → ScrollToTop
 - **Theme color:** `#050510` (via viewport export, not metadata.other)
 - **Canonical URL:** `/` (via alternates)
 - **OpenGraph:** Title, description, type, url configured
+- **Twitter card:** `summary_large_image` (reuses opengraph-image)
 - **OG Image:** Dynamic via `opengraph-image.tsx` (edge runtime, 1200×630, gradient + avatar + skills)
 - **Favicon:** Transparent `src/app/icon.png` (no logo in tab)
 - **JSON-LD:** Person schema with name, jobTitle, url, worksFor, email, sameAs (GitHub + LinkedIn), knowsAbout
@@ -200,4 +209,4 @@ git push origin main # Triggers Vercel auto-deploy
 
 ---
 
-*Last updated: 2026-04-21 — Editorial portrait in About, removed Hero avatar, transparent favicon*
+*Last updated: 2026-05-29 — Multi-agent audit fixes: touch-reachable project links, portrait sizes+blur, contrast (slate-400), reduced-motion guards, skip link, form a11y, font-weight trim, shared lib/site.ts, heading tracking-tight. See docs/AUDIT-2026-05-29.md*

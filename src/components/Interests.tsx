@@ -115,7 +115,7 @@ function InterestCard({
           <h4 className="font-heading font-semibold text-sm text-slate-100 group-hover:text-white transition-colors">
             {interest.label}
           </h4>
-          <p className="text-xs text-slate-500 font-mono mt-0.5">
+          <p className="text-xs text-slate-400 font-mono mt-0.5">
             {interest.detail}
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function Interests() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 mb-4 relative inline-block"
+          className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 mb-4 relative inline-block"
         >
           When I&apos;m Not Coding
           <motion.span

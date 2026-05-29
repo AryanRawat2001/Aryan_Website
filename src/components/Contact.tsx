@@ -2,7 +2,8 @@
 
 import { useState, useRef, FormEvent } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Send, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/lib/site';
 
 const CONTACT_ITEMS = [
   {
@@ -25,10 +26,8 @@ const CONTACT_ITEMS = [
   },
 ];
 
-const SOCIAL_LINKS = [
-  { icon: Github, label: 'GitHub', href: 'https://github.com/AryanRawat2001/' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-rawat-58551618b/' },
-];
+// Social links minus Email (email already appears in CONTACT_ITEMS above).
+const SOCIALS = SOCIAL_LINKS.filter((l) => l.label !== 'Email');
 
 interface FormData {
   name: string;
@@ -109,7 +108,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 mb-4 relative inline-block"
+          className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 mb-4 relative inline-block"
         >
           Let&apos;s Connect
           <motion.span
@@ -171,7 +170,7 @@ export default function Contact() {
                 Find Me Online
               </h3>
               <div className="flex gap-3">
-                {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
+                {SOCIALS.map(({ icon: Icon, label, href }) => (
                   <a
                     key={label}
                     href={href}
@@ -198,6 +197,8 @@ export default function Contact() {
             <div className="gradient-border rounded-2xl bg-surface/50 p-8">
               {sent ? (
                 <motion.div
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-16 text-center"
@@ -222,7 +223,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-mono text-slate-500 mb-2">
+                      <label htmlFor="name" className="block text-xs font-mono text-slate-400 mb-2">
                         NAME
                       </label>
                       <input
@@ -234,11 +235,11 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="Your name"
                         disabled={sending}
-                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-400 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-xs font-mono text-slate-500 mb-2">
+                      <label htmlFor="email" className="block text-xs font-mono text-slate-400 mb-2">
                         EMAIL
                       </label>
                       <input
@@ -250,13 +251,13 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="your@email.com"
                         disabled={sending}
-                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-400 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-xs font-mono text-slate-500 mb-2">
+                    <label htmlFor="subject" className="block text-xs font-mono text-slate-400 mb-2">
                       SUBJECT
                     </label>
                     <input
@@ -268,12 +269,12 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="What's this about?"
                       disabled={sending}
-                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-400 text-sm font-body transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-xs font-mono text-slate-500 mb-2">
+                    <label htmlFor="message" className="block text-xs font-mono text-slate-400 mb-2">
                       MESSAGE
                     </label>
                     <textarea
@@ -285,7 +286,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell me about your project, collaboration idea, or just say hello..."
                       disabled={sending}
-                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-600 text-sm font-body transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-3 border border-border focus:border-accent-blue/60 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 text-slate-200 placeholder:text-slate-400 text-sm font-body transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -307,7 +308,7 @@ export default function Contact() {
                     )}
                   </button>
                   {error && (
-                    <p className="text-red-400 text-sm font-body mt-2">
+                    <p role="alert" className="text-red-400 text-sm font-body mt-2">
                       Something went wrong. Please try again.
                     </p>
                   )}

@@ -66,7 +66,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-heading font-bold text-4xl sm:text-5xl text-slate-100 relative inline-block"
+              className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100 relative inline-block"
             >
               Who I Am
             </motion.h2>
@@ -90,6 +90,9 @@ export default function About() {
                   alt="Aryan Rawat — Data Scientist at Bristol Myers Squibb"
                   width={900}
                   height={1200}
+                  sizes="(max-width: 640px) 300px, 340px"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAADKADAAQAAAABAAAAEAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAEAAMAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMADAwMDAwMFAwMFB0UFBQdJx0dHR0nMScnJycnMTsxMTExMTE7Ozs7Ozs7O0dHR0dHR1NTU1NTXV1dXV1dXV1dXf/bAEMBDg8PGBYYKBYWKGFCNkJhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYf/dAAQAAf/aAAwDAQACEQMRAD8A1ZLWU9qrGylz0NZO+6ud8Au2MYGWOcEbef6VIuuXeSpdVxjq2OoB9feulYlPWxi6TR//2Q=="
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
                 {/* Subtle vignette for depth */}
@@ -172,7 +175,7 @@ export default function About() {
                     <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan mt-2 shrink-0" />
                     <div>
                       <span className="text-slate-100 font-semibold text-sm">{item.label}</span>
-                      <span className="text-slate-500 text-sm ml-2">— {item.desc}</span>
+                      <span className="text-slate-400 text-sm ml-2">— {item.desc}</span>
                     </div>
                   </div>
                 ))}
@@ -193,7 +196,7 @@ export default function About() {
                       <Icon size={16} />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-500 font-mono">{label}</div>
+                      <div className="text-xs text-slate-400 font-mono">{label}</div>
                       <div className="text-sm text-slate-200 font-semibold mt-0.5 break-words">
                         {value}
                       </div>

@@ -95,14 +95,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </span>
         )}
         {/* Hover links */}
-        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200">
+        <div className="absolute top-4 right-4 flex gap-2 opacity-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-200">
           {project.github && (
             <a
               href={project.github}
               aria-label="GitHub"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-lg bg-navy/80 border border-border flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-lg bg-navy/80 border border-border flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors cursor-pointer"
             >
               <Github size={14} />
             </a>
@@ -113,7 +113,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               aria-label="Live demo"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-lg bg-navy/80 border border-border flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-lg bg-navy/80 border border-border flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors cursor-pointer"
             >
               <ExternalLink size={14} />
             </a>
@@ -189,7 +189,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="font-heading font-bold text-4xl sm:text-5xl text-slate-100"
+              className="font-heading font-bold text-4xl sm:text-5xl tracking-tight text-slate-100"
             >
               What I&apos;ve Built
             </motion.h2>
