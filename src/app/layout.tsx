@@ -72,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
+            // Escape `<` so the payload can never terminate the script tag.
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
@@ -90,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 addressLocality: 'Hyderabad',
                 addressCountry: 'IN',
               },
-            }),
+            }).replace(/</g, '\\u003c'),
           }}
         />
       </head>

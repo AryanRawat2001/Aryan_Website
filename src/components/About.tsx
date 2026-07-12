@@ -105,7 +105,7 @@ export default function About() {
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                   <div>
                     <div className="text-[10px] font-mono text-slate-400 tracking-widest uppercase mb-1">
-                      // signed
+                      {'// signed'}
                     </div>
                     <div className="font-heading font-bold text-slate-100 text-lg leading-tight">
                       Aryan Rawat
@@ -208,7 +208,7 @@ export default function About() {
 
             {/* BMS badge */}
             <div className="mt-5 p-5 rounded-2xl bg-gradient-to-br from-accent-blue/10 to-accent-cyan/5 border border-accent-blue/20">
-              <div className="text-xs font-mono text-accent-cyan mb-2">// current_status</div>
+              <div className="text-xs font-mono text-accent-cyan mb-2">{'// current_status'}</div>
               <div className="font-heading font-bold text-slate-100 text-xl">
                 Building @ BMS
               </div>

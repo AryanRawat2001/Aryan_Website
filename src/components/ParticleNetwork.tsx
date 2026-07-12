@@ -119,8 +119,22 @@ export default function ParticleNetwork() {
 
         p.x += p.vx;
         p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
+        // Clamp to bounds when reflecting — a bare velocity flip lets particles
+        // pushed past the edge (mouse force, resize) oscillate outside forever.
+        if (p.x < 0) {
+          p.x = 0;
+          p.vx = Math.abs(p.vx);
+        } else if (p.x > w) {
+          p.x = w;
+          p.vx = -Math.abs(p.vx);
+        }
+        if (p.y < 0) {
+          p.y = 0;
+          p.vy = Math.abs(p.vy);
+        } else if (p.y > h) {
+          p.y = h;
+          p.vy = -Math.abs(p.vy);
+        }
 
         const mouseProximity =
           distSq < MOUSE_RADIUS_SQ * 2.25

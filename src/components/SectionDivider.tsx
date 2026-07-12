@@ -1,5 +1,6 @@
 'use client';
 
+import { useId } from 'react';
 import { motion } from 'framer-motion';
 
 interface SectionDividerProps {
@@ -7,6 +8,10 @@ interface SectionDividerProps {
 }
 
 export default function SectionDivider({ variant = 'gradient' }: SectionDividerProps) {
+  // Unique per instance — the wave divider renders more than once per page,
+  // and duplicate SVG gradient ids are invalid HTML.
+  const waveGradId = useId();
+
   if (variant === 'wave') {
     return (
       <div className="relative w-full h-24 overflow-hidden bg-navy" aria-hidden="true">
@@ -18,14 +23,14 @@ export default function SectionDivider({ variant = 'gradient' }: SectionDividerP
         >
           <motion.path
             d="M0 40 C360 80, 720 0, 1080 40 S1440 80, 1440 40 V80 H0 Z"
-            fill="url(#waveGrad)"
+            fill={`url(#${waveGradId})`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           />
           <defs>
-            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient id={waveGradId} x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="rgba(59,130,246,0)" />
               <stop offset="30%" stopColor="rgba(59,130,246,0.15)" />
               <stop offset="50%" stopColor="rgba(6,182,212,0.2)" />

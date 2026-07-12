@@ -43,6 +43,8 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  // Honeypot — humans never see or fill this; Formspree drops submissions where it's set.
+  const [gotcha, setGotcha] = useState('');
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
@@ -61,12 +63,16 @@ export default function Contact() {
     try {
       const res = await fetch('https://formspree.io/f/xeeprqgl', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
           subject: form.subject,
           message: form.message,
+          _gotcha: gotcha,
         }),
       });
       if (res.ok) {
@@ -221,6 +227,16 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    value={gotcha}
+                    onChange={(e) => setGotcha(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                  />
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className="block text-xs font-mono text-slate-400 mb-2">
@@ -231,6 +247,7 @@ export default function Contact() {
                         name="name"
                         type="text"
                         required
+                        maxLength={100}
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Your name"
@@ -247,6 +264,7 @@ export default function Contact() {
                         name="email"
                         type="email"
                         required
+                        maxLength={200}
                         value={form.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
@@ -265,6 +283,7 @@ export default function Contact() {
                       name="subject"
                       type="text"
                       required
+                      maxLength={200}
                       value={form.subject}
                       onChange={handleChange}
                       placeholder="What's this about?"
@@ -282,6 +301,7 @@ export default function Contact() {
                       name="message"
                       required
                       rows={6}
+                      maxLength={5000}
                       value={form.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project, collaboration idea, or just say hello..."

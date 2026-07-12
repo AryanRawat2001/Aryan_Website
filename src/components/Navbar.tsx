@@ -44,6 +44,15 @@ export default function Navbar() {
     updateActiveSection();
   });
 
+  // Sync state on mount — covers reloads with restored scroll position,
+  // where no scroll event fires until the user actually scrolls.
+  useEffect(() => {
+    const isScrolled = window.scrollY > 20;
+    lastScrolled.current = isScrolled;
+    setScrolled(isScrolled);
+    updateActiveSection();
+  }, [updateActiveSection]);
+
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
@@ -184,7 +193,6 @@ export default function Navbar() {
         {mobileOpen && (
           <motion.div
             ref={mobileMenuRef}
-            role="menu"
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}

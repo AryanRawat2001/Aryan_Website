@@ -32,3 +32,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code local files (machine-specific, not for the public repo)
+.claude/settings.local.json
+.claude/launch.json
+
+# python bytecode (from .claude/skills scripts)
+__pycache__/
+*.pyc

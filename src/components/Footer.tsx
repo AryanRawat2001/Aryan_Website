@@ -57,7 +57,9 @@ export default function Footer() {
 
         {/* Divider + copyright */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-400 font-mono">
+          {/* suppressHydrationWarning: the year is baked into static HTML at build
+              time and can differ from the client after a year rollover. */}
+          <p className="text-xs text-slate-400 font-mono" suppressHydrationWarning>
             © {CURRENT_YEAR} Aryan Rawat. All rights reserved.
           </p>
           <p className="text-xs text-slate-400 font-mono">

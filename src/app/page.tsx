@@ -12,6 +12,7 @@ import Interests from '@/components/Interests';
 import SectionDivider from '@/components/SectionDivider';
 import PageLoader from '@/components/PageLoader';
 import ScrollToTop from '@/components/ScrollToTop';
+import MotionProvider from '@/components/MotionProvider';
 
 export default function Home() {
   return (
@@ -22,26 +23,28 @@ export default function Home() {
       >
         Skip to content
       </a>
-      <PageLoader />
-      <Navbar />
-      <Hero />
-      <SectionDivider variant="gradient" />
-      <About />
-      <SectionDivider variant="dots" />
-      <Skills />
-      <DataVisualization />
-      <SectionDivider variant="wave" />
-      <Experience />
-      <SectionDivider variant="dots" />
-      <Projects />
-      <SectionDivider variant="gradient" />
-      <Credentials />
-      <SectionDivider variant="wave" />
-      <Interests />
-      <SectionDivider variant="gradient" />
-      <Contact />
-      <Footer />
-      <ScrollToTop />
+      <MotionProvider>
+        <PageLoader />
+        <Navbar />
+        <Hero />
+        <SectionDivider variant="gradient" />
+        <About />
+        <SectionDivider variant="dots" />
+        <Skills />
+        <DataVisualization />
+        <SectionDivider variant="wave" />
+        <Experience />
+        <SectionDivider variant="dots" />
+        <Projects />
+        <SectionDivider variant="gradient" />
+        <Credentials />
+        <SectionDivider variant="wave" />
+        <Interests />
+        <SectionDivider variant="gradient" />
+        <Contact />
+        <Footer />
+        <ScrollToTop />
+      </MotionProvider>
     </main>
   );
 }

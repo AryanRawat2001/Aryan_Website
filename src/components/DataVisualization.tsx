@@ -42,6 +42,7 @@ export default function DataVisualization() {
 
     let animationId = 0;
     let time = 0;
+    let visible = true;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -125,6 +126,10 @@ export default function DataVisualization() {
     setupNodesAndConnections();
 
     const draw = () => {
+      if (!visible) {
+        animationId = 0;
+        return;
+      }
       time += 0.016;
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
@@ -228,7 +233,19 @@ export default function DataVisualization() {
       animationId = requestAnimationFrame(draw);
     };
 
-    draw();
+    // Pause the loop while the canvas is scrolled off-screen.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (entry.isIntersecting && !animationId) {
+          animationId = requestAnimationFrame(draw);
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
+    animationId = requestAnimationFrame(draw);
 
     const handleResize = () => {
       resize();
@@ -238,6 +255,7 @@ export default function DataVisualization() {
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
     };
   }, [isInView]);
@@ -261,7 +279,7 @@ export default function DataVisualization() {
           className="text-center mb-6"
         >
           <p className="font-mono text-xs text-slate-500 tracking-widest uppercase">
-            // data_pipeline.visualize()
+            {'// data_pipeline.visualize()'}
           </p>
         </motion.div>
 

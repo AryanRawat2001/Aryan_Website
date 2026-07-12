@@ -298,7 +298,7 @@ export default function Skills() {
           className="mt-12"
         >
           <p className="text-xs font-mono text-slate-500 mb-4 tracking-widest">
-            // TOOLS & ECOSYSTEM
+            {'// TOOLS & ECOSYSTEM'}
           </p>
           <div className="flex flex-wrap gap-2.5">
             {[

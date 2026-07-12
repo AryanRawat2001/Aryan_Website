@@ -134,6 +134,7 @@ function MagneticButton({
         className={className}
         onClick={onClick}
         href={as === 'a' ? href : undefined}
+        type={as === 'button' ? 'button' : undefined}
         {...rest}
       >
         {children}
