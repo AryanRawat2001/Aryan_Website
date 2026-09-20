@@ -3,7 +3,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import type { ElementType } from 'react';
-import { ExternalLink, Github, TrendingUp, BarChart3, Bot, MessageSquareText, BrainCircuit, Wallet, ShieldCheck, ClipboardCheck } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, Bot, BrainCircuit, ShieldCheck, ClipboardCheck } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -51,17 +51,6 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: 'Customer Sentiment Analysis',
-    description: 'NLP pipeline for feedback classification with 92% accuracy',
-    longDesc:
-      'Developed a sentiment analysis pipeline processing large volumes of unstructured customer feedback using NLP and deep learning. Categorized feedback into actionable themes, achieving 92% classification accuracy and reducing response time to customer issues by 30%.',
-    icon: MessageSquareText,
-    gradient: 'from-violet-600/20 to-purple-600/20',
-    tags: ['Python', 'TensorFlow', 'Hugging Face', 'NLP', 'Pandas', 'NumPy'],
-    github: 'https://github.com/AryanRawat2001/',
-    featured: true,
-  },
-  {
     title: 'OctaSense AI',
     description: '8-agent AI pipeline for automated EDA and decision intelligence',
     longDesc:
@@ -81,17 +70,6 @@ const PROJECTS: Project[] = [
     gradient: 'from-emerald-600/20 to-cyan-600/20',
     tags: ['AERA', 'Decision Intelligence', 'SAP', 'Redshift', 'SQL', 'Data Pipelines'],
     github: 'https://github.com/AryanRawat2001/',
-    featured: true,
-  },
-  {
-    title: 'Monthly Expense Tracker',
-    description: 'Auto-tracks spending across cards by parsing bank-alert emails',
-    longDesc:
-      'A local, privacy-first web app that automatically tracks monthly spending across multiple credit cards and a savings account by parsing bank transaction-alert emails via the read-only Gmail API — no manual statement uploads. A hybrid regex + local-LLM engine extracts each transaction, with a deterministic verifier that prevents hallucinated amounts. Smart classification guarantees no double-counting: card-bill payments and self-transfers are excluded, while friend reimbursements auto-deduct from spend. Includes category charts, date-range views, and a filterable transactions table.',
-    icon: Wallet,
-    gradient: 'from-cyan-600/20 to-blue-600/20',
-    tags: ['Python', 'FastAPI', 'SQLite', 'Gmail API', 'Claude (LLM)', 'Chart.js'],
-    github: 'https://github.com/AryanRawat2001/monthly-expense-tracker',
     featured: true,
   },
 ];
