@@ -3,7 +3,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import type { ElementType } from 'react';
-import { ExternalLink, Github, TrendingUp, BarChart3, Bot, MessageSquareText, BrainCircuit, Wallet } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, BarChart3, Bot, MessageSquareText, BrainCircuit, Wallet, ShieldCheck, ClipboardCheck } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -18,6 +18,27 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
+  {
+    title: 'agentrag \u2014 Verified-Citation RAG',
+    description: 'RAG over 152 regulatory documents where every quote is located in the source before you see it',
+    longDesc:
+      "A retrieval system over 152 public FDA and ClinicalTrials.gov documents (13,423 passages) that answers questions and then locates every quote the model produced in the source document \u2014 showing the model's quote and the document's text side by side, and saying so when a quote cannot be found. The evaluation harness was built first: 240 span-grounded queries across 192 retriever and chunking configurations showed dense embeddings losing to BM25 by 43\u201375\u00d7 on exact identifiers, so the shipped service uses keyword search alone. Open source, 1,116 tests.",
+    icon: ShieldCheck,
+    gradient: 'from-blue-600/20 to-purple-600/20',
+    tags: ['Python', 'FastAPI', 'Docker', 'BM25', 'Qdrant', 'RAG', 'Cross-Encoder Reranking', 'pytest'],
+    github: 'https://github.com/AryanRawat2001/agentrag',
+    featured: true,
+  },
+  {
+    title: 'Audit Trail Review Automation (GxP)',
+    description: 'Replaces a manual six-monthly equipment log review across 750 systems',
+    longDesc:
+      'A GxP-compliant tool that automates the six-monthly audit-trail review of manufacturing equipment logs \u2014 previously a manual, per-system read. Now live across 3 global sites and 750 systems. Uploads go straight to S3, an async pipeline auto-maps the event/date/user columns with reviewer override and saved preferences, flags rows by trigger keyword, and produces a DOCX report answering five standard audit questions with per-row justifications. The LLM is deliberately confined to column mapping and one formatting pass \u2014 every figure is computed in pandas and the flagged-record appendix appended programmatically, an anti-hallucination split that matters in a regulated system.',
+    icon: ClipboardCheck,
+    gradient: 'from-emerald-600/20 to-blue-600/20',
+    tags: ['React', 'FastAPI', 'AWS Lambda', 'Step Functions', 'Aurora PostgreSQL', 'Azure OpenAI', 'pandas', 'GxP'],
+    featured: true,
+  },
   {
     title: 'Revenue Forecasting Model',
     description: 'Predictive financial model for telecom KPI forecasting with 90% accuracy',
@@ -44,10 +65,10 @@ const PROJECTS: Project[] = [
     title: 'OctaSense AI',
     description: '8-agent AI pipeline for automated EDA and decision intelligence',
     longDesc:
-      'Built at BMS — an end-to-end multi-agent system powered by 8 specialized Claude Sonnet 4 agents in a 5-stage parallel pipeline. Upload any CSV and get automated data profiling, interactive EDA charts, anomaly detection, feature engineering, ML model recommendations, business interpretation, and a 7-sheet Excel report — all streamed live with no code required.',
+      'An end-to-end multi-agent system powered by 8 specialized agents with tiered model routing \u2014 Claude Haiku for fast profiling and EDA agents, Sonnet 4 for reasoning \u2014 in a 5-stage parallel pipeline. Upload any CSV and get automated data profiling, interactive EDA charts, anomaly detection, feature engineering, ML model recommendations, business interpretation, and a 7-sheet Excel report — all streamed live with no code required.',
     icon: Bot,
     gradient: 'from-violet-600/20 to-indigo-600/20',
-    tags: ['Claude Sonnet 4', 'Multi-Agent', 'Python', 'FastAPI', 'React', 'AWS Bedrock', 'EDA'],
+    tags: ['Claude (Haiku + Sonnet 4)', 'Multi-Agent', 'Python', 'FastAPI', 'React', 'AWS Bedrock', 'EDA'],
     github: 'https://github.com/AryanRawat2001/OctaSense-AI-MultiAgent-EDA-Decision-Copilot',
     featured: true,
   },
@@ -55,7 +76,7 @@ const PROJECTS: Project[] = [
     title: 'Demand Forecasting & Planning',
     description: 'Decision Intelligence product for pharma supply chain at BMS',
     longDesc:
-      'Built a comprehensive DFP product on the AERA platform featuring Touchless Forecasting for automated SKU planning, Bulk Forecast Update workflows, and Remote Functions for reusable business logic. Replaced legacy RapidResponse processes with AERA-native solutions — cutting costs and improving planning accuracy across the pharma supply chain.',
+      'Built a comprehensive DFP product on the AERA platform featuring Touchless Forecasting for automated SKU planning \u2014 automating ~42% of the BMS portfolio and cutting forecasting effort ~35% \u2014 plus Remote Functions for reusable business logic. Migrated master data management from SAP IBP to an AERA-native source of truth, replacing an Excel-based tool and eliminating a SAP IBP licence renewal.',
     icon: BrainCircuit,
     gradient: 'from-emerald-600/20 to-cyan-600/20',
     tags: ['AERA', 'Decision Intelligence', 'SAP', 'Redshift', 'SQL', 'Data Pipelines'],
