@@ -3,7 +3,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import type { ElementType } from 'react';
-import { ExternalLink, Github, TrendingUp, Bot, BrainCircuit, ShieldCheck, ClipboardCheck } from 'lucide-react';
+import { ExternalLink, Github, Bot, BrainCircuit, ShieldCheck, ClipboardCheck } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -40,17 +40,6 @@ const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: 'Revenue Forecasting Model',
-    description: 'Predictive financial model for telecom KPI forecasting with 90% accuracy',
-    longDesc:
-      'Built a robust revenue forecasting model achieving R² > 80, enabling accurate financial predictions for a major telecom client. Integrated external factors like holidays and network outages through feature engineering to improve model accuracy. Included a stakeholder-facing interface for scenario analysis and real-time revenue projections.',
-    icon: TrendingUp,
-    gradient: 'from-blue-600/20 to-cyan-600/20',
-    tags: ['Python', 'scikit-learn', 'SQL', 'GCP', 'Feature Engineering', 'Tableau'],
-    github: 'https://github.com/AryanRawat2001/',
-    featured: true,
-  },
-  {
     title: 'OctaSense AI',
     description: '8-agent AI pipeline for automated EDA and decision intelligence',
     longDesc:
@@ -69,7 +58,6 @@ const PROJECTS: Project[] = [
     icon: BrainCircuit,
     gradient: 'from-emerald-600/20 to-cyan-600/20',
     tags: ['AERA', 'Decision Intelligence', 'SAP', 'Redshift', 'SQL', 'Data Pipelines'],
-    github: 'https://github.com/AryanRawat2001/',
     featured: true,
   },
 ];
