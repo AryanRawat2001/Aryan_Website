@@ -11,13 +11,13 @@ const QUICK_FACTS = [
   { icon: GraduationCap, label: 'Education', value: 'B.Tech CSE (Cloud), SRM Chennai \'23 · 8.89 CGPA' },
   { icon: MapPin, label: 'Location', value: 'Hyderabad, India' },
   { icon: Mail, label: 'Email', value: 'aryanrawat2001@gmail.com' },
-  { icon: Brain, label: 'Focus', value: 'ML · GenAI · Analytics' },
+  { icon: Brain, label: 'Focus', value: 'LLM Systems · ML · Decision Intelligence' },
 ];
 
 const APPROACH_ITEMS = [
-  { label: 'Data-First Thinking', desc: 'Every decision grounded in evidence' },
-  { label: 'Model Interpretability', desc: 'Black boxes don\'t save patients' },
-  { label: 'Rapid Prototyping', desc: 'Ship, iterate, improve relentlessly' },
+  { label: 'Measure Before Shipping', desc: 'The evaluation harness comes first, not last' },
+  { label: 'Show The Work', desc: 'Every claim traceable back to its source' },
+  { label: 'End-to-End Ownership', desc: 'Pipeline to interface, not just the model' },
 ];
 
 const containerVariants = {
@@ -144,8 +144,9 @@ export default function About() {
           <div>
             <motion.p variants={itemVariants} className="text-slate-300 text-lg leading-relaxed mb-5 font-body">
               I&apos;m a <span className="text-slate-100 font-semibold">Data Scientist at Bristol Myers Squibb</span>,
-              working within the Global Product Development &amp; Supply team on the AERA platform — where data-powered
-              solutions drive innovation and operational excellence across the pharmaceutical supply chain.
+              building and shipping decision-intelligence and LLM systems for the Global Product Development &amp;
+              Supply team — demand forecasting that automates ~42% of the portfolio, and a GxP audit-trail tool now
+              running across 3 global sites and 750 systems.
             </motion.p>
 
             <motion.p variants={itemVariants} className="text-slate-400 text-base leading-relaxed mb-5 font-body">
@@ -155,10 +156,10 @@ export default function About() {
             </motion.p>
 
             <motion.p variants={itemVariants} className="text-slate-400 text-base leading-relaxed font-body">
-              My toolkit spans data mining, statistical modeling, and generative AI. Whether it&apos;s building
-              a predictive pipeline, engineering a GenAI-powered research tool, or translating complex insights
-              into dashboards that executives actually read — I care about the craft of turning raw data into
-              decisions that matter.
+              What I care about is whether a system can be trusted once it&apos;s live. That shows up in how I
+              build: the evaluation harness before the model, the citation checked against its source before a
+              reader sees it, the LLM kept away from any number it could get wrong. Python, FastAPI and AWS are
+              the tools — the discipline is knowing what you&apos;ve actually measured.
             </motion.p>
 
             {/* Approach */}

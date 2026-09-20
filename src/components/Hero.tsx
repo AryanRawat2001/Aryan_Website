@@ -145,9 +145,9 @@ function MagneticButton({
 
 const ROLES = [
   'Data Scientist',
+  'Applied AI Engineer',
   'ML Engineer',
   'GenAI Developer',
-  'Analytics Expert',
 ];
 
 const STATS = [
@@ -300,10 +300,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed mb-8 font-body"
             >
-              Building intelligent systems at the intersection of{' '}
+              Building and shipping intelligent systems at the intersection of{' '}
               <span className="text-slate-200">machine learning</span> and{' '}
-              <span className="text-slate-200">pharmaceutical innovation</span>{' '}
-              — turning complex clinical data into actionable insights.
+              <span className="text-slate-200">pharmaceutical operations</span>{' '}
+              — from demand forecasting to LLM tools that show their work.
             </motion.p>
 
             {/* CTAs with magnetic effect */}

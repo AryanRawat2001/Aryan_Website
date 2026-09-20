@@ -22,32 +22,32 @@ interface SkillCategory {
 
 const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: 'Core Data Science',
+    category: 'Engineering & Data',
     tag: 'FOUNDATION',
     skills: [
       { name: 'Python', level: 5, proficiency: 'Expert', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)', featured: true },
-      { name: 'MySQL / SQL', level: 4, proficiency: 'Advanced', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)' },
-      { name: 'Pandas & NumPy', level: 5, proficiency: 'Expert', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)', featured: true },
-      { name: 'Data Visualization', level: 4, proficiency: 'Advanced', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)' },
+      { name: 'SQL / PostgreSQL', level: 4, proficiency: 'Advanced', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)' },
+      { name: 'FastAPI & REST', level: 4, proficiency: 'Advanced', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)', featured: true },
+      { name: 'AWS & Docker', level: 3, proficiency: 'Proficient', color: 'from-blue-500 to-cyan-400', glowColor: 'rgba(59,130,246,0.3)' },
     ],
   },
   {
-    category: 'Machine & Deep Learning',
+    category: 'Machine Learning',
     tag: 'ML / AI',
     skills: [
       { name: 'Machine Learning', level: 4, proficiency: 'Advanced', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)', featured: true },
+      { name: 'Time-Series Forecasting', level: 4, proficiency: 'Advanced', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)' },
       { name: 'Deep Learning', level: 4, proficiency: 'Advanced', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)' },
-      { name: 'Decision Intelligence', level: 4, proficiency: 'Proficient', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)' },
-      { name: 'PyTorch / TensorFlow', level: 3, proficiency: 'Proficient', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)' },
+      { name: 'Decision Intelligence', level: 4, proficiency: 'Advanced', color: 'from-violet-500 to-purple-400', glowColor: 'rgba(139,92,246,0.3)' },
     ],
   },
   {
-    category: 'Generative AI & LLMs',
+    category: 'GenAI & LLM Engineering',
     tag: 'GEN AI',
     skills: [
-      { name: 'Generative AI', level: 4, proficiency: 'Advanced', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)', featured: true },
+      { name: 'RAG & Vector Search', level: 4, proficiency: 'Advanced', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)', featured: true },
+      { name: 'Agentic AI & MCP', level: 4, proficiency: 'Advanced', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)' },
       { name: 'Claude / Anthropic', level: 4, proficiency: 'Advanced', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)' },
-      { name: 'LLM Fine-tuning', level: 3, proficiency: 'Proficient', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)' },
       { name: 'Prompt Engineering', level: 4, proficiency: 'Advanced', color: 'from-cyan-500 to-teal-400', glowColor: 'rgba(6,182,212,0.3)' },
     ],
   },
@@ -165,7 +165,7 @@ function SkillTile({
 
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <h4 className="font-heading font-semibold text-slate-100 text-base group-hover:text-accent-blue-bright transition-colors truncate">
+          <h4 className="font-heading font-semibold text-slate-100 text-[15px] leading-snug group-hover:text-accent-blue-bright transition-colors">
             {skill.name}
           </h4>
           <span className={`text-xs font-mono mt-1 inline-block ${PROFICIENCY_MAP[skill.proficiency]}`}>
@@ -302,10 +302,10 @@ export default function Skills() {
           </p>
           <div className="flex flex-wrap gap-2.5">
             {[
-              'Python', 'MySQL', 'PyTorch', 'TensorFlow', 'scikit-learn',
-              'Pandas', 'NumPy', 'Hugging Face', 'LangChain', 'Claude API',
-              'Jupyter', 'Git', 'Docker', 'Tableau', 'Power BI',
-              'AWS', 'Azure', 'FastAPI', 'Streamlit', 'R',
+              'Python', 'SQL', 'FastAPI', 'React', 'Docker',
+              'AWS', 'Azure', 'PostgreSQL', 'Qdrant', 'Git',
+              'Claude API', 'Azure OpenAI', 'LangChain', 'Hugging Face', 'MCP',
+              'PyTorch', 'TensorFlow', 'scikit-learn', 'Pandas', 'Power BI',
             ].map((tech) => (
               <span
                 key={tech}
