@@ -35,12 +35,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://aryanrawat.vercel.app'),
   title: 'Aryan Rawat — Data Scientist',
   description:
-    'Personal portfolio of Aryan Rawat, Data Scientist at Bristol Myers Squibb. Specializing in machine learning, generative AI, and clinical data analytics.',
+    'Personal portfolio of Aryan Rawat, Data Scientist at Bristol Myers Squibb. Building machine learning, decision intelligence, and LLM systems for pharmaceutical supply chain and manufacturing.',
   keywords: [
     'Aryan Rawat',
     'Data Scientist',
     'Machine Learning',
     'Generative AI',
+    'Applied AI Engineer',
+    'RAG',
+    'LLM',
     'Bristol Myers Squibb',
     'Python',
     'Portfolio',
