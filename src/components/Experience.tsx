@@ -90,7 +90,6 @@ const EXPERIENCES: ExperienceItem[] = [
       'Shipped a GxP audit-trail review tool on AWS (React, FastAPI, Lambda, Step Functions, Aurora) now live across 3 global sites and 750 systems, replacing a manual six-monthly per-system log review',
       'Migrated master data management from SAP IBP to an AERA-native source of truth, replacing an Excel-based tool and eliminating a SAP IBP licence renewal',
       'Developed Remote Functions used across the platform for scalable, reusable business logic',
-      'Co-led two 2-day hands-on Claude workshops (60 attendees each) driving company-wide adoption \u2014 participants each built and demoed their own use case',
       'Mentored 4 data scientists and engineers on the AERA DFP platform and ML forecasting practices',
       'Built POCs for enterprise clients like FedEx \u2014 UI-based EDA tool for supply chain data with automated decision insights for stakeholders',
     ],
